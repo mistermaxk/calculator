@@ -80,6 +80,7 @@ button {
 
 .auxiliary {
     display: flex;
+    align-self: flex-end;
     gap: 2px;
     margin-bottom: 2px;
 }
@@ -88,13 +89,11 @@ button {
     background-color: #eee;
 }
 
-#clear,
 #all-clear,
-#memory-1,
-#memory-2 {
+#backspace {
     height: 50px;
 }
 
-#clear {
+#backspace {
     margin-left: 10px;
 }
