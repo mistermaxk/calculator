@@ -50,6 +50,11 @@ button {
     gap: 2px;
 }
 
+.numerals button {
+    background-color: #555;
+    color: #eee;
+}
+
 #numberZero {
     order: 1;
 }
@@ -62,6 +67,12 @@ button {
     gap: 2px;
 }
 
+.operators button {
+    background-color: rgb(249, 211, 59);
+    color: #333;
+    font-weight: bold;
+}
+
 #equals {
     order: 1;
     margin-right: 10px;
@@ -71,6 +82,10 @@ button {
     display: flex;
     gap: 2px;
     margin-bottom: 2px;
+}
+
+.auxiliary button {
+    background-color: #eee;
 }
 
 #clear,
