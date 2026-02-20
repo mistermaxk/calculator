@@ -25,8 +25,9 @@ function divide(a, b) {
 }
 
 function equals(result) {
-    // round results more than 20 digits
-    
+    if (String(result).length > 20) {
+        result = Number(result).toFixed(18);
+    }
     updateDisplay(result);
 }
 
