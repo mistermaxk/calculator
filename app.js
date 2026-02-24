@@ -1,8 +1,9 @@
 /* Calculator @mistermaxk 2026 */
 let currentNum = 0;
-let operator = null;
 let operandA = 0;
-let operandB = 0;
+let operandB = null
+let operator = null;
+let nextOp = null;
 
 function add(a, b) {
     return a + b;
@@ -24,33 +25,56 @@ function divide(a, b) {
     return a / b;
 }
 
-function equals(result) {
-    if (String(result).length > 20) {
-        result = Number(result).toFixed(18);
+function equals() {
+    if (String(operandA).length > 20) {
+        operandA = Number(operandA).toFixed(18);
     }
-    updateDisplay(result);
+    updateDisplay(operandA);
 }
 
 function operate(op) {
+    let result = 0;
+    let opA = Number(operandA);
+    let opB = Number(operandB);
     switch (op) {
         case "+":
-            add(operandA, operandB);
+            result = add(opA, opB);
             break;
         case "-":
-            subtract(operandA, operandB);
+            result = subtract(opA, opB);
             break;
         case "x":
-            multiply(operandA, operandB);
+            result = multiply(opA, opB);
             break;
         case "&#247":
         case "÷":
-            divide(operandA, operandB);
+            result = divide(opA, opB);
             break;
         case "=":
             equals();
             break;
     }
+    if (operator !== "=") operandA = result;
+    operandB = null;
+    operator = nextOp;
+    nextOp = null;
+}
 
+function storeOperator(entry) {
+    if (operandA === 0 && operandB === null && currentNum !== null) {
+        operator = entry;
+        operandA = currentNum;
+    } else if (operandB === null && operator !== null && nextOp === null) {
+        operandB = currentNum;
+        nextOp = entry;
+        operate(operator);
+        equals();
+    } 
+    if (operator === "=") {
+        currentNum = operandA;
+    } else {
+        currentNum = null;
+    }
 }
 
 function storeNumberToDisplay(entry) {
@@ -68,20 +92,16 @@ function storeNumberToDisplay(entry) {
     updateDisplay(currentNum);
 }
 
-function storeOperator(entry) {
-
-}
-
 function clear() {
     currentNum = 0;
     operandA = 0;
-    operandB = 0;
+    operandB = null;
     operator = null;
-    updateDisplay(0);
+    nextOp = null;
+    updateDisplay(currentNum);
 }
 
 const display = document.querySelector("#display");
-
 function updateDisplay(toDisplay) {
     display.textContent = toDisplay;
 }
