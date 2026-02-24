@@ -38,24 +38,23 @@ function operate(op) {
     let opA = Number(operandA);
     let opB = Number(operandB);
     switch (op) {
-        case "+":
+        case "add":
             result = add(opA, opB);
             break;
-        case "-":
+        case "subtract":
             result = subtract(opA, opB);
             break;
-        case "x":
+        case "multiply":
             result = multiply(opA, opB);
             break;
-        case "&#247":
-        case "÷":
+        case "divide":
             result = divide(opA, opB);
             break;
-        case "=":
+        case "equals":
             equals();
             break;
     }
-    if (operator !== "=") operandA = result;
+    if (operator !== "equals") operandA = result;
     operandB = null;
     operator = nextOp;
     nextOp = null;
@@ -71,7 +70,7 @@ function storeOperator(entry) {
         operate(operator);
         equals();
     } 
-    if (operator === "=") {
+    if (operator === "equals") {
         currentNum = operandA;
     } else {
         currentNum = null;
@@ -127,7 +126,7 @@ operatorsBtn.addEventListener("click", (e) => {
         selectedOpID = e.target.id;
         e.target.style.backgroundImage = "linear-gradient(to bottom, transparent, #f6d623)";
         e.target.style.backgroundColor = "rgb(231, 116, 9)";
-        storeOperator(e.target.textContent);
+        storeOperator(selectedOpID);
     }
 });
 
