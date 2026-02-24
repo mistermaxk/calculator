@@ -99,6 +99,11 @@ function clear() {
     operator = null;
     nextOp = null;
     updateDisplay(currentNum);
+    const opButtons = [...document.querySelectorAll(".operators button")];
+    for (let btn of opButtons) {
+        btn.style.backgroundImage = "linear-gradient(to bottom, #fce40d, transparent)";
+        btn.style.backgroundColor = "rgb(244, 186, 25)";
+    }
 }
 
 const display = document.querySelector("#display");
