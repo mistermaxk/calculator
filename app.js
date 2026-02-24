@@ -19,6 +19,7 @@ function multiply(a, b) {
 
 function divide(a, b) {
     if (b === 0) {
+        // add timer to implement properly
         updateDisplay("Division by 0 is a no");
         return 0;
     }
@@ -114,8 +115,18 @@ numeralsBtn.addEventListener("click", (e) => {
 });
 
 const operatorsBtn = document.querySelector(".operators");
+let selectedOpID = null;
+let prevSelectedOp = null;
 operatorsBtn.addEventListener("click", (e) => {
     if (e.target.nodeName === "BUTTON") {
+        if (selectedOpID !== null) {
+            prevSelectedOp = document.getElementById(selectedOpID);
+            prevSelectedOp.style.backgroundImage = "linear-gradient(to bottom, #fce40d, transparent)";
+            prevSelectedOp.style.backgroundColor = "rgb(244, 186, 25)";
+            }
+        selectedOpID = e.target.id;
+        e.target.style.backgroundImage = "linear-gradient(to bottom, transparent, #f6d623)";
+        e.target.style.backgroundColor = "rgb(231, 116, 9)";
         storeOperator(e.target.textContent);
     }
 });

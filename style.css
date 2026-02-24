@@ -77,8 +77,8 @@ button {
 }
 
 .selected {
-    background-image: linear-gradient(to bottom, #f6d623, transparent); 
-    background-color: rgb(237, 149, 15);
+    background-image: linear-gradient(to bottom, transparent, #f6d623); 
+    background-color: rgb(231, 116, 9);
 }
 
 #equals {
