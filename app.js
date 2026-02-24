@@ -19,11 +19,10 @@ function multiply(a, b) {
 
 function divide(a, b) {
     if (b === 0) {
-        // add timer to implement properly
-        updateDisplay("Division by 0 is a no");
-        return 0;
+        return NaN;
+    } else {     
+        return a / b;
     }
-    return a / b;
 }
 
 function equals() {
