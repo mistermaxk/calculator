@@ -76,6 +76,11 @@ button {
     font-weight: bold;
 }
 
+.selected {
+    background-image: linear-gradient(to bottom, #f6d623, transparent); 
+    background-color: rgb(237, 149, 15);
+}
+
 #equals {
     order: 1;
     margin-right: 10px;
