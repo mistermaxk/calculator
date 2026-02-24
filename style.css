@@ -52,6 +52,7 @@ button {
 }
 
 .numerals button {
+    background-image: linear-gradient(to bottom, #aaa, transparent); 
     background-color: #555;
     color: #eee;
 }
@@ -69,7 +70,8 @@ button {
 }
 
 .operators button {
-    background-color: rgb(249, 211, 59);
+    background-image: linear-gradient(to bottom, #fce40d, transparent); 
+    background-color: rgb(244, 186, 25);
     color: #333;
     font-weight: bold;
 }
@@ -87,7 +89,8 @@ button {
 }
 
 .auxiliary button {
-    background-color: #eee;
+    background-image: linear-gradient(to bottom, #eee, transparent); 
+    background-color: #ccc;
 }
 
 #clear,
